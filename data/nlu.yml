@@ -108,13 +108,26 @@ nlu:
 - intent: news_headlines
   examples: |
     - what's the news?
-    - what's the news today?
-    - what's the news headlines?
-    - whats the news?
     - whats the news today?
-    - whats the news headlines?
-    - what's the news?
-    - what's the news today?
-    - what's the news headlines?
-    - whats the news?
-    - whats the news today?
+    - News Headline
+    - news headline
+    - News Headlines
+    - news headlines
+
+- intent: news_us
+  examples: |
+    - News Headline US
+    - news headline us
+    - us news headlines
+
+- intent: news_india
+  examples: |
+    - News Headline India
+    - news headline india
+    - india news headline
+
+- intent: news_australia
+  examples: |
+    - News Headline Australia
+    - news headline Australia
+    - Australia news headline

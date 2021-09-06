@@ -40,3 +40,30 @@ stories:
   - action: utter_news
   - intent: news_headlines
   - action: utter_news_headlines
+
+- story: news_us
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: news_headlines
+  - action: utter_news_headlines
+  - intent: news_us
+  - action: action_news_headline_us 
+
+- story: news_india
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: news_headlines
+  - action: utter_news_headlines
+  - intent: news_india
+  - action: action_news_headline_india   
+
+- story: news_india
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: news_headlines
+  - action: utter_news_headlines
+  - intent: news_australia
+  - action: action_news_headline_au

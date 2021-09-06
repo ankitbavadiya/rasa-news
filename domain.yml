@@ -10,6 +10,16 @@ intents:
   - bot_challenge
   - news
   - news_headlines
+  - news_us
+  - news_india
+  - news_australia
+
+actions:
+  - utter_greet
+  - utter_news_headlines
+  - action_news_headline_us
+  - action_news_headline_india
+  - action_news_headline_au
 
 responses:
   utter_greet:
@@ -32,16 +42,35 @@ responses:
   - text: "I am a bot, powered by Rasa."
 
   utter_news:
-  - buttons: 
-      - title: "News Headline" 
-        payload: /news_headline
-      - title: "NEWS from Specefic Source"
-        payload: /news_from_source
-      - title: "Search News"
-        payload: /search_news
+  - 
+      buttons: 
+        - 
+          payload: /news_headlines
+          title: "News Headline" 
+        - 
+          payload: /news_from_source
+          title: "NEWS from Specefic Source"
+        - 
+          payload: /search_news
+          title: "Search News"  
+
+      text: "Hi! To know about latest news please select an option" 
 
   utter_news_headlines:
-  - text: "Headlines"
+  - 
+      buttons: 
+        - 
+          payload: /news_us
+          title: "News Headline US" 
+        - 
+          payload: /news_india
+          title: "News Headline India"
+        - 
+          payload: /news_australia
+          title: "News Headline Australia"    
+      text: "Please select an option from below" 
+
+
 
 session_config:
   session_expiration_time: 60
