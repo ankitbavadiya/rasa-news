@@ -59,7 +59,7 @@ stories:
   - intent: news_india
   - action: action_news_headline_india   
 
-- story: news_india
+- story: news_australia
   steps:
   - intent: greet
   - action: utter_greet
