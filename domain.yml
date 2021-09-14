@@ -13,64 +13,72 @@ intents:
   - news_us
   - news_india
   - news_australia
+  - news_from_source
+  - bbc_news
+  - abc_news
+  - cnn_news
 
 actions:
   - utter_greet
   - utter_news_headlines
+  - utter_newssource
   - action_news_headline_us
   - action_news_headline_india
   - action_news_headline_au
+  - action_news_bbc
+  - action_news_abc
+  - action_news_cnn
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
+    - text: "Hey! How are you?"
 
   utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+    - text: "Here is something to cheer you up:"
+      image: "https://i.imgur.com/nGF1K8f.jpg"
 
   utter_did_that_help:
-  - text: "Did that help you?"
+    - text: "Did that help you?"
 
   utter_happy:
-  - text: "Great, carry on!"
+    - text: "Great, carry on!"
 
   utter_goodbye:
-  - text: "Bye"
+    - text: "Bye"
 
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+    - text: "I am a bot, powered by Rasa."
 
   utter_news:
-  - 
-      buttons: 
-        - 
-          payload: /news_headlines
-          title: "News Headline" 
-        - 
-          payload: /news_from_source
+    - buttons:
+        - payload: /news_headlines
+          title: "News Headline"
+        - payload: /news_from_source
           title: "NEWS from Specefic Source"
-        - 
-          payload: /search_news
-          title: "Search News"  
+        - payload: /search_news
+          title: "Search News"
 
-      text: "Hi! To know about latest news please select an option" 
+      text: "Hi! To know about latest news please select an option"
 
   utter_news_headlines:
-  - 
-      buttons: 
-        - 
-          payload: /news_us
-          title: "News Headline US" 
-        - 
-          payload: /news_india
+    - buttons:
+        - payload: /news_us
+          title: "News Headline US"
+        - payload: /news_india
           title: "News Headline India"
-        - 
-          payload: /news_australia
-          title: "News Headline Australia"    
-      text: "Please select an option from below" 
+        - payload: /news_australia
+          title: "News Headline Australia"
+      text: "Please select an option from below"
 
-
+  utter_newssource:
+    - buttons:
+        - payload: /bbc_news
+          title: "BBC NEWS"
+        - payload: /abc_news
+          title: "ABC NEWS"
+        - payload: /cnn_news
+          title: "CNN NEWS"
+      text: "Please select an source from below"
 
 session_config:
   session_expiration_time: 60

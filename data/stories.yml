@@ -1,69 +1,95 @@
 version: "2.0"
 
 stories:
+  - story: happy path
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: mood_great
+      - action: utter_happy
+      - intent: news
+      - action: utter_news
+      - intent: news_headlines
+      - action: utter_news_headlines
 
-- story: happy path
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_happy
-  - intent: news
-  - action: utter_news
-  - intent: news_headlines
-  - action: utter_news_headlines
+  - story: sad path 1
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: mood_unhappy
+      - action: utter_cheer_up
+      - action: utter_did_that_help
+      - intent: affirm
+      - action: utter_happy
+      - intent: news
+      - action: utter_news
+      - intent: news_headlines
+      - action: utter_news_headlines
 
-- story: sad path 1
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: affirm
-  - action: utter_happy
-  - intent: news
-  - action: utter_news
-  - intent: news_headlines
-  - action: utter_news_headlines
+  - story: sad path 2
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: mood_unhappy
+      - action: utter_cheer_up
+      - action: utter_did_that_help
+      - intent: deny
+      - action: utter_goodbye
+      - intent: news
+      - action: utter_news
+      - intent: news_headlines
+      - action: utter_news_headlines
 
-- story: sad path 2
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: deny
-  - action: utter_goodbye
-  - intent: news
-  - action: utter_news
-  - intent: news_headlines
-  - action: utter_news_headlines
+  - story: news_us
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: news_headlines
+      - action: utter_news_headlines
+      - intent: news_us
+      - action: action_news_headline_us
 
-- story: news_us
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: news_headlines
-  - action: utter_news_headlines
-  - intent: news_us
-  - action: action_news_headline_us 
+  - story: news_india
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: news_headlines
+      - action: utter_news_headlines
+      - intent: news_india
+      - action: action_news_headline_india
 
-- story: news_india
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: news_headlines
-  - action: utter_news_headlines
-  - intent: news_india
-  - action: action_news_headline_india   
+  - story: news_australia
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: news_headlines
+      - action: utter_news_headlines
+      - intent: news_australia
+      - action: action_news_headline_au
 
-- story: news_australia
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: news_headlines
-  - action: utter_news_headlines
-  - intent: news_australia
-  - action: action_news_headline_au
+  - story: bbc_news
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: news_from_source
+      - action: utter_newssource
+      - intent: bbc_news
+      - action: action_news_bbc
+
+  - story: abc_news
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: news_from_source
+      - action: utter_newssource
+      - intent: abc_news
+      - action: action_news_abc
+
+  - story: cnn_news
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: news_from_source
+      - action: utter_newssource
+      - intent: cnn_news
+      - action: action_news_cnn

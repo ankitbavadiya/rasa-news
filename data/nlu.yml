@@ -1,133 +1,155 @@
 version: "2.0"
 
 nlu:
-- intent: greet
-  examples: |
-    - hey
-    - hello
-    - hi
-    - hello there
-    - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
+  - intent: greet
+    examples: |
+      - hey
+      - hello
+      - hi
+      - hello there
+      - good morning
+      - good evening
+      - moin
+      - hey there
+      - let's go
+      - hey dude
+      - goodmorning
+      - goodevening
+      - good afternoon
 
-- intent: goodbye
-  examples: |
-    - good afternoon
-    - cu
-    - good by
-    - cee you later
-    - good night
-    - bye
-    - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
-    - see you later
+  - intent: goodbye
+    examples: |
+      - good afternoon
+      - cu
+      - good by
+      - cee you later
+      - good night
+      - bye
+      - goodbye
+      - have a nice day
+      - see you around
+      - bye bye
+      - see you later
 
-- intent: affirm
-  examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
+  - intent: affirm
+    examples: |
+      - yes
+      - y
+      - indeed
+      - of course
+      - that sounds good
+      - correct
 
-- intent: deny
-  examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
+  - intent: deny
+    examples: |
+      - no
+      - n
+      - never
+      - I don't think so
+      - don't like that
+      - no way
+      - not really
 
-- intent: mood_great
-  examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
+  - intent: mood_great
+    examples: |
+      - perfect
+      - great
+      - amazing
+      - feeling like a king
+      - wonderful
+      - I am feeling very good
+      - I am great
+      - I am amazing
+      - I am going to save the world
+      - super stoked
+      - extremely good
+      - so so perfect
+      - so good
+      - so perfect
 
-- intent: mood_unhappy
-  examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
+  - intent: mood_unhappy
+    examples: |
+      - my day was horrible
+      - I am sad
+      - I don't feel very well
+      - I am disappointed
+      - super sad
+      - I'm so sad
+      - sad
+      - very sad
+      - unhappy
+      - not good
+      - not very good
+      - extremly sad
+      - so saad
+      - so sad
 
-- intent: bot_challenge
-  examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
+  - intent: bot_challenge
+    examples: |
+      - are you a bot?
+      - are you a human?
+      - am I talking to a bot?
+      - am I talking to a human?
 
-- intent: news
-  examples: |
-    - what's new?
-    - what's up?
-    - what's going on?
-    - what's going on today?
-    - what's new today?
-    - whats new?
-    - whats up?
-    - whats going on?
-    - whats going on today?
-    - whats new today?
-    - whats going on?
+  - intent: news
+    examples: |
+      - what's new?
+      - what's up?
+      - what's going on?
+      - what's going on today?
+      - what's new today?
+      - whats new?
+      - whats up?
+      - whats going on?
+      - whats going on today?
+      - whats new today?
+      - whats going on?
 
-- intent: news_headlines
-  examples: |
-    - what's the news?
-    - whats the news today?
-    - News Headline
-    - news headline
-    - News Headlines
-    - news headlines
+  - intent: news_headlines
+    examples: |
+      - what's the news?
+      - whats the news today?
+      - News Headline
+      - news headline
+      - News Headlines
+      - news headlines
 
-- intent: news_us
-  examples: |
-    - News Headline US
-    - news headline us
-    - us news headlines
+  - intent: news_us
+    examples: |
+      - News Headline US
+      - news headline us
+      - us news headlines
 
-- intent: news_india
-  examples: |
-    - News Headline India
-    - news headline india
-    - india news headline
+  - intent: news_india
+    examples: |
+      - News Headline India
+      - news headline india
+      - india news headline
 
-- intent: news_australia
-  examples: |
-    - News Headline Australia
-    - news headline Australia
-    - Australia news headline
+  - intent: news_australia
+    examples: |
+      - News Headline Australia
+      - news headline Australia
+      - Australia news headline
+
+  - intent: news_from_source
+    examples: |
+      - NEWS from Specefic Source
+      - news from specefic source
+
+  - intent: bbc_news
+    examples: |
+      - BBC NEWS
+      - bbc news
+      - BBC news
+
+  - intent: abc_news
+    examples: |
+      - ABC NEWS
+      - abc news
+      - ABC news
+
+  - intent: cnn_news
+    examples: |
+      - CNN NEWS
+      - cnn news
