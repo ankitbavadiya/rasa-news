@@ -11,6 +11,8 @@ stories:
       - action: utter_news
       - intent: news_headlines
       - action: utter_news_headlines
+      - intent: news_from_source
+      - action: utter_newssource
 
   - story: sad path 1
     steps:
@@ -25,20 +27,8 @@ stories:
       - action: utter_news
       - intent: news_headlines
       - action: utter_news_headlines
-
-  - story: sad path 2
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: mood_unhappy
-      - action: utter_cheer_up
-      - action: utter_did_that_help
-      - intent: deny
-      - action: utter_goodbye
-      - intent: news
-      - action: utter_news
-      - intent: news_headlines
-      - action: utter_news_headlines
+      - intent: news_from_source
+      - action: utter_newssource
 
   - story: news_us
     steps:
@@ -67,29 +57,32 @@ stories:
       - intent: news_australia
       - action: action_news_headline_au
 
-  - story: bbc_news
+  - story: news_gujarat
     steps:
       - intent: greet
       - action: utter_greet
-      - intent: news_from_source
-      - action: utter_newssource
+      - intent: news_headlines
+      - action: utter_news_headlines
+      - intent: news_gujarat
+      - action: action_news_headline_gu
+
+  - story: bbc_news
+    steps:
       - intent: bbc_news
       - action: action_news_bbc
 
   - story: abc_news
     steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: news_from_source
-      - action: utter_newssource
       - intent: abc_news
       - action: action_news_abc
 
   - story: cnn_news
     steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: news_from_source
-      - action: utter_newssource
       - intent: cnn_news
       - action: action_news_cnn
+
+  - story: search_news
+    steps:
+      - intent: search_news
+      - action: search_form
+      - action: action_news_search

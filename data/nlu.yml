@@ -131,6 +131,13 @@ nlu:
       - News Headline Australia
       - news headline Australia
       - Australia news headline
+  
+  - intent: news_gujarat
+    examples: |
+      - News Headline In Gujarati
+      - news headline in Gujarati
+      - news headline Gujarat
+      - Gujarat news headline 
 
   - intent: news_from_source
     examples: |
@@ -153,3 +160,8 @@ nlu:
     examples: |
       - CNN NEWS
       - cnn news
+
+  - intent: search_news
+    examples: |
+      - Search News
+      - search news
