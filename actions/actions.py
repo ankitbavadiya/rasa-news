@@ -49,29 +49,33 @@ class newsHeadlineus(Action):
         data = newsapi("us")
         leng = len(data["articles"])
         elems = []
-        for i in range(leng):
-            elems.append({
-                "title": data['articles'][i]['title'],
-                "image_url": data['articles'][i]['urlToImage'],
-                "subtitle": data['articles'][i]['description'],
-                "buttons": [
-                    {
-                        "type": "web_url",
-                        "url": data['articles'][i]['url'],
-                        "title": "Read More"
-                    },
-                ]
-            })
+        channel = tracker.get_latest_input_channel()
+        if(channel == 'telegram'):
+            for i in range(leng):
+                dispatcher.utter_message(text=data['articles'][i]['title'],image=data['articles'][i]['urlToImage'])
+        else:
+            for i in range(leng):
+                elems.append({
+                    "title": data['articles'][i]['title'],
+                    "image_url": data['articles'][i]['urlToImage'],
+                    "subtitle": data['articles'][i]['description'],
+                    "buttons": [
+                        {
+                            "type": "web_url",
+                            "url": data['articles'][i]['url'],
+                            "title": "Read More"
+                        },
+                    ]
+                })
 
-        gt = {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": elems
+            gt = {
+                "type": "template",
+                "payload": {
+                    "template_type": "generic",
+                    "elements": elems
+                }
             }
-        }
-        
-        dispatcher.utter_message(attachment=gt)
+            dispatcher.utter_message(attachment=gt)
         return []
 
 
@@ -87,28 +91,33 @@ class NewsheadlineIndia(Action):
         data = newsapi("in")
         leng = len(data['articles'])
         elems = []
-        for i in range(leng):
-            elems.append({
-                "title": data['articles'][i]['title'],
-                "image_url": data['articles'][i]['urlToImage'],
-                "subtitle": data['articles'][i]['description'],
-                "buttons": [
-                    {
-                        "type": "web_url",
-                        "url": data['articles'][i]['url'],
-                        "title": "Read More"
-                    },
-                ]
-            })
+        channel = tracker.get_latest_input_channel()
+        if(channel == 'telegram'):
+            for i in range(leng):
+                dispatcher.utter_message(text=data['articles'][i]['title'],image=data['articles'][i]['urlToImage'])
+        else:
+            for i in range(leng):
+                elems.append({
+                    "title": data['articles'][i]['title'],
+                    "image_url": data['articles'][i]['urlToImage'],
+                    "subtitle": data['articles'][i]['description'],
+                    "buttons": [
+                        {
+                            "type": "web_url",
+                            "url": data['articles'][i]['url'],
+                            "title": "Read More"
+                        },
+                    ]
+                })
 
-        gt = {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": elems
+            gt = {
+                "type": "template",
+                "payload": {
+                    "template_type": "generic",
+                    "elements": elems
+                }
             }
-        }
-        dispatcher.utter_message(attachment=gt)
+            dispatcher.utter_message(attachment=gt)
         return []
 
 
@@ -126,29 +135,36 @@ class NewsheadlineGujarat(Action):
         data = response.json()
         leng = len(data['data'])
         elems = []
-        for i in range(leng):
-            elems.append({
-                "title": data['data'][i]['heading'],
-                "image_url": 'https://static.gujaratsamachar.com/articles/articles_thumbs/thumbnails/'+data['data'][i]['articleImage'],
-                "subtitle": "",
-                "buttons": [
-                    {
-                        "type": "web_url",
-                        "url": data['data'][i]['articleUrl'],
-                        "title": "Read More"
-                    },
-                ]
-            })
+        channel = tracker.get_latest_input_channel()
+        if(channel == 'telegram'):
+            for i in range(leng):
+                dispatcher.utter_message(text=data['data'][i]['heading'],image='https://static.gujaratsamachar.com/articles/articles_thumbs/thumbnails/'+data['data'][i]['articleImage'])
+        else:
+            for i in range(leng):
+                elems.append({
+                    "title": data['data'][i]['heading'],
+                    "image_url": 'https://static.gujaratsamachar.com/articles/articles_thumbs/thumbnails/'+data['data'][i]['articleImage'],
+                    "subtitle": "",
+                    "buttons": [
+                        {
+                            "type": "web_url",
+                            "url": data['data'][i]['articleUrl'],
+                            "title": "Read More"
+                        },
+                    ]
+                })
 
-        gt = {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": elems
+            gt = {
+                "type": "template",
+                "payload": {
+                    "template_type": "generic",
+                    "elements": elems
+                }
             }
-        }
-        dispatcher.utter_message(attachment=gt)
+            dispatcher.utter_message(attachment=gt)
         return []
+
+
 class NewsHeadlineAustralia(Action):
     """example of custom action"""
 
@@ -161,29 +177,33 @@ class NewsHeadlineAustralia(Action):
         data = newsapi("au")
         leng = len(data["articles"])
         elems = []
-        for i in range(leng):
-            elems.append({
-                "title": data['articles'][i]['title'],
-                "image_url": data['articles'][i]['urlToImage'],
-                "subtitle": data['articles'][i]['description'],
-                "buttons": [
-                    {
-                        "type": "web_url",
-                        "url": data['articles'][i]['url'],
-                        "title": "Read More"
-                    },
-                ]
-            })
+        channel = tracker.get_latest_input_channel()
+        if(channel == 'telegram'):
+            for i in range(leng):
+                dispatcher.utter_message(text=data['articles'][i]['title'],image=data['articles'][i]['urlToImage'])
+        else:
+            for i in range(leng):
+                elems.append({
+                    "title": data['articles'][i]['title'],
+                    "image_url": data['articles'][i]['urlToImage'],
+                    "subtitle": data['articles'][i]['description'],
+                    "buttons": [
+                        {
+                            "type": "web_url",
+                            "url": data['articles'][i]['url'],
+                            "title": "Read More"
+                        },
+                    ]
+                })
 
-        gt = {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": elems
+            gt = {
+                "type": "template",
+                "payload": {
+                    "template_type": "generic",
+                    "elements": elems
+                }
             }
-        }
-        
-        dispatcher.utter_message(attachment=gt)
+            dispatcher.utter_message(attachment=gt)
         return []
 
 
@@ -199,28 +219,33 @@ class NewsBBC(Action):
         leng=len(data["articles"])
         print(leng)
         elems = []
-        for i in range(leng):
-            elems.append({
-                "title": data['articles'][i]['title'],
-                "image_url": data['articles'][i]['urlToImage'],
-                "subtitle": data['articles'][i]['description'],
-                "buttons": [
-                    {
-                        "type": "web_url",
-                        "url": data['articles'][i]['url'],
-                        "title": "Read More"
-                    },
-                ]
-            })
+        channel = tracker.get_latest_input_channel()
+        if(channel == 'telegram'):
+            for i in range(leng):
+                dispatcher.utter_message(text=data['articles'][i]['title'],image=data['articles'][i]['urlToImage'])
+        else:
+            for i in range(leng):
+                elems.append({
+                    "title": data['articles'][i]['title'],
+                    "image_url": data['articles'][i]['urlToImage'],
+                    "subtitle": data['articles'][i]['description'],
+                    "buttons": [
+                        {
+                            "type": "web_url",
+                            "url": data['articles'][i]['url'],
+                            "title": "Read More"
+                        },
+                    ]
+                })
 
-        gt = {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": elems
+            gt = {
+                "type": "template",
+                "payload": {
+                    "template_type": "generic",
+                    "elements": elems
+                }
             }
-        }        
-        dispatcher.utter_message(attachment=gt)
+            dispatcher.utter_message(attachment=gt)
         return []
 
 
@@ -235,28 +260,33 @@ class NewsABC(Action):
         data=sourcenews("abc-news")
         leng=len(data["articles"])
         elems = []
-        for i in range(leng):
-            elems.append({
-                "title": data['articles'][i]['title'],
-                "image_url": data['articles'][i]['urlToImage'],
-                "subtitle": data['articles'][i]['description'],
-                "buttons": [
-                    {
-                        "type": "web_url",
-                        "url": data['articles'][i]['url'],
-                        "title": "Read More"
-                    },
-                ]
-            })
+        channel = tracker.get_latest_input_channel()
+        if(channel == 'telegram'):
+            for i in range(leng):
+                dispatcher.utter_message(text=data['articles'][i]['title'],image=data['articles'][i]['urlToImage'])
+        else:
+            for i in range(leng):
+                elems.append({
+                    "title": data['articles'][i]['title'],
+                    "image_url": data['articles'][i]['urlToImage'],
+                    "subtitle": data['articles'][i]['description'],
+                    "buttons": [
+                        {
+                            "type": "web_url",
+                            "url": data['articles'][i]['url'],
+                            "title": "Read More"
+                        },
+                    ]
+                })
 
-        gt = {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": elems
+            gt = {
+                "type": "template",
+                "payload": {
+                    "template_type": "generic",
+                    "elements": elems
+                }
             }
-        }        
-        dispatcher.utter_message(attachment=gt)
+            dispatcher.utter_message(attachment=gt)
         return []
 
 
@@ -271,28 +301,33 @@ class NewsCNN(Action):
         data=sourcenews("cnn")
         leng=len(data["articles"])
         elems = []
-        for i in range(leng):
-            elems.append({
-                "title": data['articles'][i]['title'],
-                "image_url": data['articles'][i]['urlToImage'],
-                "subtitle": data['articles'][i]['description'],
-                "buttons": [
-                    {
-                        "type": "web_url",
-                        "url": data['articles'][i]['url'],
-                        "title": "Read More"
-                    },
-                ]
-            })
+        channel = tracker.get_latest_input_channel()
+        if(channel == 'telegram'):
+            for i in range(leng):
+                dispatcher.utter_message(text=data['articles'][i]['title'],image=data['articles'][i]['urlToImage'])
+        else:
+            for i in range(leng):
+                elems.append({
+                    "title": data['articles'][i]['title'],
+                    "image_url": data['articles'][i]['urlToImage'],
+                    "subtitle": data['articles'][i]['description'],
+                    "buttons": [
+                        {
+                            "type": "web_url",
+                            "url": data['articles'][i]['url'],
+                            "title": "Read More"
+                        },
+                    ]
+                })
 
-        gt = {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": elems
+            gt = {
+                "type": "template",
+                "payload": {
+                    "template_type": "generic",
+                    "elements": elems
+                }
             }
-        }        
-        dispatcher.utter_message(attachment=gt)
+            dispatcher.utter_message(attachment=gt)
         return []
     
 class SearchForm(FormAction):
@@ -338,26 +373,31 @@ class NewsTopic(Action):
         data=topicnews(topics)
         leng=len(data["articles"])
         elems = []
-        for i in range(leng):
-            elems.append({
-                "title": data['articles'][i]['title'],
-                "image_url": data['articles'][i]['urlToImage'],
-                "subtitle": data['articles'][i]['description'],
-                "buttons": [
-                    {
-                        "type": "web_url",
-                        "url": data['articles'][i]['url'],
-                        "title": "Read More"
-                    },
-                ]
-            })
+        channel = tracker.get_latest_input_channel()
+        if(channel == 'telegram'):
+            for i in range(leng):
+                dispatcher.utter_message(text=data['articles'][i]['title'],image=data['articles'][i]['urlToImage'])
+        else:
+            for i in range(leng):
+                elems.append({
+                    "title": data['articles'][i]['title'],
+                    "image_url": data['articles'][i]['urlToImage'],
+                    "subtitle": data['articles'][i]['description'],
+                    "buttons": [
+                        {
+                            "type": "web_url",
+                            "url": data['articles'][i]['url'],
+                            "title": "Read More"
+                        },
+                    ]
+                })
 
-        gt = {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": elems
+            gt = {
+                "type": "template",
+                "payload": {
+                    "template_type": "generic",
+                    "elements": elems
+                }
             }
-        }        
-        dispatcher.utter_message(attachment=gt)   
+            dispatcher.utter_message(attachment=gt)   
         return []

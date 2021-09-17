@@ -17,6 +17,14 @@ nlu:
       - goodevening
       - good afternoon
 
+  - intent: start
+    examples: |
+      - start
+      - start bot
+      - hello
+      - Can you start
+      - km chhe?
+
   - intent: goodbye
     examples: |
       - good afternoon
@@ -131,13 +139,13 @@ nlu:
       - News Headline Australia
       - news headline Australia
       - Australia news headline
-  
+
   - intent: news_gujarat
     examples: |
       - News Headline In Gujarati
       - news headline in Gujarati
       - news headline Gujarat
-      - Gujarat news headline 
+      - Gujarat news headline
 
   - intent: news_from_source
     examples: |

@@ -2,6 +2,7 @@ version: "2.0"
 
 intents:
   - greet
+  - start
   - goodbye
   - affirm
   - deny
@@ -33,10 +34,10 @@ actions:
   - action_news_cnn
   - action_news_search
 
-slots: 
-  topic: 
+slots:
+  topic:
     auto_fill: false
-    type: unfeaturized 
+    type: unfeaturized
 
 forms:
   - search_form
