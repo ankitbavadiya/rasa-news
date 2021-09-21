@@ -1,4 +1,5 @@
 import json
+import asyncio
 from typing import Dict, Text, Any, List, Union, Optional
 
 from rasa_sdk import Action, Tracker
@@ -9,6 +10,16 @@ from rasa_sdk.forms import FormAction
 # from bs4 import BeautifulSoup
 
 import requests
+from pymongo import MongoClient
+
+try:
+    conn = MongoClient()
+    print("Connected successfully!!!")
+except:  
+    print("Could not connect to MongoDB")
+
+# database
+db = conn.rasa
 
 
 def newsapi(country):
@@ -86,11 +97,13 @@ class NewsheadlineIndia(Action):
         """name of the custom action"""
         return "action_news_headline_india"
 
-    def run(self, dispatcher, tracker, domain):
+    async def run(self, dispatcher, tracker, domain):
         """displaying news headlines of india"""
         data = newsapi("in")
         leng = len(data['articles'])
         elems = []
+        collection = db.news_india
+
         channel = tracker.get_latest_input_channel()
         if(channel == 'telegram'):
             for i in range(leng):
@@ -109,6 +122,8 @@ class NewsheadlineIndia(Action):
                         },
                     ]
                 })
+            
+            addedData = collection.insert_many(elems)
 
             gt = {
                 "type": "template",
@@ -329,7 +344,8 @@ class NewsCNN(Action):
             }
             dispatcher.utter_message(attachment=gt)
         return []
-    
+
+
 class SearchForm(FormAction):
     """Example of a custom form action"""   
     def name(self):
@@ -361,6 +377,7 @@ class SearchForm(FormAction):
             after all required slots are filled""
             dispatcher.utter_message("here is related news")"""    
         return []
+
 
 class NewsTopic(Action):
     def name(self):
