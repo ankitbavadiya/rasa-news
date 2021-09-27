@@ -11,6 +11,8 @@ from rasa_sdk.forms import FormAction
 
 import requests
 from pymongo import MongoClient
+from bson import Binary, Code
+from bson.json_util import dumps
 
 try:
     conn = MongoClient()
@@ -48,6 +50,15 @@ def topicnews(topic):
     data=response.json()
     return data
 
+def dbEntry(data, type):
+    modifyData = json.loads(dumps(data))
+    if type == 'country':
+        db.country.insert_many(modifyData)
+    elif type == 'source':
+        db.source.insert_many(modifyData)
+    elif type == 'topic':
+        db.topic.insert_many(modifyData)
+
 class newsHeadlineus(Action):
     """example of custom action"""
 
@@ -76,7 +87,8 @@ class newsHeadlineus(Action):
                             "url": data['articles'][i]['url'],
                             "title": "Read More"
                         },
-                    ]
+                    ],
+                    "meta": "US"
                 })
 
             gt = {
@@ -87,6 +99,7 @@ class newsHeadlineus(Action):
                 }
             }
             dispatcher.utter_message(attachment=gt)
+            dbEntry(elems, 'country')
         return []
 
 
@@ -102,7 +115,6 @@ class NewsheadlineIndia(Action):
         data = newsapi("in")
         leng = len(data['articles'])
         elems = []
-        collection = db.news_india
 
         channel = tracker.get_latest_input_channel()
         if(channel == 'telegram'):
@@ -120,11 +132,10 @@ class NewsheadlineIndia(Action):
                             "url": data['articles'][i]['url'],
                             "title": "Read More"
                         },
-                    ]
+                    ],
+                    "meta": "india"
                 })
             
-            addedData = collection.insert_many(elems)
-
             gt = {
                 "type": "template",
                 "payload": {
@@ -133,6 +144,8 @@ class NewsheadlineIndia(Action):
                 }
             }
             dispatcher.utter_message(attachment=gt)
+            dbEntry(elems, 'country')
+
         return []
 
 
@@ -166,8 +179,11 @@ class NewsheadlineGujarat(Action):
                             "url": data['data'][i]['articleUrl'],
                             "title": "Read More"
                         },
-                    ]
+                    ],
+                    "meta": "gujarati"
                 })
+
+            dbEntry(elems, 'country')
 
             gt = {
                 "type": "template",
@@ -208,7 +224,8 @@ class NewsHeadlineAustralia(Action):
                             "url": data['articles'][i]['url'],
                             "title": "Read More"
                         },
-                    ]
+                    ],
+                    "meta": "australia"
                 })
 
             gt = {
@@ -219,6 +236,7 @@ class NewsHeadlineAustralia(Action):
                 }
             }
             dispatcher.utter_message(attachment=gt)
+            dbEntry(elems, 'country')
         return []
 
 
