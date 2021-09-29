@@ -67,7 +67,7 @@ responses:
         - payload: /news_headlines
           title: "News Headline"
         - payload: /news_from_source
-          title: "NEWS from Specefic Source"
+          title: "NEWS from Specific Source"
         - payload: /search_news
           title: "Search News"
       button_type: vertical
