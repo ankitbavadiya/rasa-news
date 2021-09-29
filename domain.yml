@@ -70,7 +70,7 @@ responses:
           title: "NEWS from Specefic Source"
         - payload: /search_news
           title: "Search News"
-
+      button_type: vertical
       text: "Hi! To know about latest news please select an option"
 
   utter_news_headlines:
@@ -83,6 +83,7 @@ responses:
           title: "News Headline Australia"
         - payload: /news_gujarat
           title: "News Headline In Gujarati"
+      button_type: vertical
       text: "Please select an option from below"
 
   utter_newssource:
