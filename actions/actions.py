@@ -10,19 +10,19 @@ from rasa_sdk.forms import FormAction
 # from bs4 import BeautifulSoup
 
 import requests
-from pymongo import MongoClient
-from bson import Binary, Code
-from bson.json_util import dumps
+# from pymongo import MongoClient
+# from bson import Binary, Code
+# from bson.json_util import dumps
 from requests.models import Response
 
-try:
-    conn = MongoClient()
-    print("Connected successfully!!!")
-except:  
-    print("Could not connect to MongoDB")
+# try:
+#     conn = MongoClient()
+#     print("Connected successfully!!!")
+# except:  
+#     print("Could not connect to MongoDB")
 
 # database
-db = conn.rasa
+# db = conn.rasa
 
 
 def newsapi(country):
@@ -51,14 +51,14 @@ def topicnews(topic):
     data=response.json()
     return data
 
-def dbEntry(data, type):
-    modifyData = json.loads(dumps(data))
-    if type == 'country':
-        db.country.insert_many(modifyData)
-    elif type == 'source':
-        db.source.insert_many(modifyData)
-    elif type == 'topic':
-        db.topic.insert_many(modifyData)
+# def dbEntry(data, type):
+#     modifyData = json.loads(dumps(data))
+#     if type == 'country':
+#         db.country.insert_many(modifyData)
+#     elif type == 'source':
+#         db.source.insert_many(modifyData)
+#     elif type == 'topic':
+#         db.topic.insert_many(modifyData)
 
 class newsHeadlineus(Action):
     """example of custom action"""
@@ -151,7 +151,7 @@ class newsHeadlineus(Action):
                 }
             }
             dispatcher.utter_message(attachment=gt)
-            dbEntry(elems, 'country')
+            # dbEntry(elems, 'country')
         return []
 
 
@@ -247,7 +247,7 @@ class NewsheadlineIndia(Action):
                 }
             }
             dispatcher.utter_message(attachment=gt)
-            dbEntry(elems, 'country')
+            # dbEntry(elems, 'country')
 
         return []
 
@@ -288,7 +288,7 @@ class NewsheadlineGujarat(Action):
                     "meta": "gujarati"
                 })
 
-            dbEntry(elems, 'country')
+            # dbEntry(elems, 'country')
 
             gt = {
                 "type": "template",
@@ -392,7 +392,7 @@ class NewsHeadlineAustralia(Action):
                 }
             }
             dispatcher.utter_message(attachment=gt)
-            dbEntry(elems, 'country')
+            # dbEntry(elems, 'country')
         return []
 
 
